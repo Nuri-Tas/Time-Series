@@ -7,9 +7,7 @@ library('tseries')
 library('Quandl')
 library('lubridate')
 
-Quandl.api_key('')
-
-Quandl.api_key('CtjNjWST_4UyvCEZsvqi')
+Quandl.api_key(YOUR_API_KEY)
 
 #Pull stock information for MSFT and TSLA
 MSFT <- getSymbols('MSFT', auto.assign = FALSE)
@@ -34,4 +32,6 @@ chartSeries(TSLA,
             TA = c(addBBands(n = 20, sd=2 ), addRSI(), addEMA(n = 20)),
             theme = chartTheme('white')
             )
+
+# Then add the open to close price change
 addTA(OpCl(TSLA),col='red', type='h')
